@@ -1,5 +1,5 @@
 # DentalApp
-Aplicación de un sistema de organización para un consuntorio dental. Trabajo Colaborativo
+Aplicación de un sistema de organización para un consuntorio dental. Trabajo Colaborativo. ©Copyright. 2022 - 2025. Todos los Derechos Reservados
 
 
 ** Captura de Inicio 
