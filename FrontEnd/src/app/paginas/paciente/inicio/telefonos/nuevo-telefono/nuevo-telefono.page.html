@@ -1,0 +1,34 @@
+<app-sub-header titulo="Nuevo telefono" ruta="/telefonos"></app-sub-header>
+
+<ion-content>
+  <div class="centrado">
+    <ion-grid fixed >
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Numero:</ion-label>
+              <ion-input clear-input="true" [(ngModel)]="telefono.telefono"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Telefono de</ion-label>
+              <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="telefono.referencia">
+                <ion-select-option value="Casa">Casa</ion-select-option>
+                <ion-select-option value="Oficina">Oficina</ion-select-option>
+                <ion-select-option value="Personal">Personal</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="secundario" fill="outline" shape="round" (click)="guardarTelefono()">
+            Guardar telefono
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</div>
+</ion-content>

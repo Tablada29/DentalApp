@@ -1,0 +1,7 @@
+{
+  "name": "sistemaDental",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

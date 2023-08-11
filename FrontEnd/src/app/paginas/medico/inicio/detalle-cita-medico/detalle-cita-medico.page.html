@@ -1,0 +1,72 @@
+<app-sub-header titulo="Detalles de cita" ruta="medico/inicio"></app-sub-header>
+
+<ion-content>
+  <div class="centrado">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+
+            <ion-item>
+              <ion-label>
+                <small>Titulo:</small>
+                <h2>{{cita.titulo}}</h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <small>Comentarios:</small>
+                <h2>{{cita.comentarios}}</h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <small>Fecha:</small>
+                <h2>{{cita.fecha}}</h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <small>Hora:</small>
+                <h2>{{cita.hora}}</h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <small>Dentista:</small>
+                <h2>{{cita.nombre_medico}}</h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <small>Paciente:</small>
+                <h2>{{cita.nombre_paciente}}</h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="receta.id_receta != null" detail (click)="mostrarReceta()">
+              <ion-label>
+                <h2><b>Receta disponible</b></h2>
+                <small>Dentista:</small>
+                <h2>{{receta.nombre_medico}}</h2>
+                <small>Fecha:</small>
+                <h2>{{receta.fecha}}</h2>
+              </ion-label>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="receta.id_receta == null">
+    <ion-fab-button color="secundario" (click)="generarReceta()">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

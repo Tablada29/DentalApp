@@ -1,0 +1,62 @@
+<app-sub-header titulo="Nueva dirección" ruta="/direcciones"></app-sub-header>
+
+<ion-content fullscreen >
+  <div class="centrado">
+        <ion-grid fixed >
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Calle</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.calle" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Numero exterior</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.numero_exterior" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Numero interior</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.numero_interior" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Colonia</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.colonia" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Ciudad</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.ciudad" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Estado</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.estado" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">País</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.pais" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Código postal</ion-label>
+                  <ion-input [(ngModel)]="nueva_direccion.codigo_postal" clear-input="true"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Dirección de</ion-label>
+                  <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="nueva_direccion.address_of">
+                    <ion-select-option value="Casa">Casa</ion-select-option>
+                    <ion-select-option value="Oficina">Oficina</ion-select-option>
+                    <ion-select-option value="Departamento">Departamento</ion-select-option>
+                    <ion-select-option value="Otra">Otra</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" color="secundario" fill="outline" shape="round" (click)="guardarNuevaDireccion()">
+                Guardar dirección
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

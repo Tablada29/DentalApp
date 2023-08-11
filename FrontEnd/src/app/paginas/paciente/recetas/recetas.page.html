@@ -1,0 +1,11 @@
+<app-header titulo="Recetas"></app-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let r of recetas; let i = index" detail (click)="detalleReceta(i)">
+            <ion-label>
+                <h2>{{r.fecha}} - {{r.nombre_completo}}</h2>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

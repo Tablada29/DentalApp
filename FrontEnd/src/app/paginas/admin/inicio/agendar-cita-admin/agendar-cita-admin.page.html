@@ -1,0 +1,62 @@
+<app-sub-header titulo="Agendar cita" ruta="/admin/admin/inicio"></app-sub-header>
+
+<ion-content>
+  <div class="centrado">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Titulo:</ion-label>
+              <ion-input placeholder="¿Cual es el asunto?" [(ngModel)]="cita.titulo"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Comentarios:</ion-label>
+              <ion-input placeholder="¿Algún comentario?" [(ngModel)]="cita.comentarios"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+              <ion-label position="floating">Consultorios:</ion-label>
+              <ion-select interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="cita.consultorio">
+                <ion-select-option value={{c.id_consultorio}} *ngFor="let c of consultorios">{{c.nombre_consultorio}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item> -->
+            <ion-item>
+              <ion-label position="floating">Fecha:</ion-label>
+              <ion-datetime placeholder="Seleccionar fecha" display-format="DD MMM YYYY"
+                month-short-names="[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Set,  Oct, Nov, Dic]"
+                min="{{current_year}}-01-01" max="{{current_year+10}}-12-31" [(ngModel)]="cita.fecha">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Hora:</ion-label>
+              <ion-datetime placeholder="Seleccionar Hora" display-format="h:mm A" picker-format="h:mm A"
+              [(ngModel)]="cita.hora">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Medico:</ion-label>
+              <ion-select interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="cita.medico">
+                <ion-select-option value={{u.id_usuario}} *ngFor="let u of dentistas">{{u.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Paciente:</ion-label>
+              <ion-select interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="cita.paciente">
+                <ion-select-option value={{p.id_usuario}} *ngFor="let p of pacientes">{{p.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="full" fill="outline" shape="round" color="secundario"
+            (click)="agendarCita()">
+            Agendar cita
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

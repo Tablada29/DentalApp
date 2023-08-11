@@ -1,0 +1,17 @@
+<app-sub-header titulo="Direcciones" ruta="paciente/inicio"></app-sub-header>
+
+<ion-content>
+  <ion-list *ngFor="let d of direcciones; let i = index">
+    <ion-item detail (click)="detalleDireccion(i)">
+      <ion-label>
+        <h3>{{d.calle}}, {{d.numero_exterior}}, {{d.colonia}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secundario" (click)="nuevaDireccion()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

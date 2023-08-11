@@ -1,0 +1,17 @@
+<ion-tabs>
+  <ion-toolbar slot="top" color="principal" class="center">
+    <ion-menu-button slot="start">
+      
+    </ion-menu-button>
+    <ion-label class="centrar" center>{{usuario.nombre+" "+usuario.apellido_paterno+" "+usuario.apellido_materno}}</ion-label>
+  </ion-toolbar>
+  <ion-tab-bar slot="top" color="secundario">
+    <ion-tab-button (click)="home()">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="citas">
+      <ion-icon name="people-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

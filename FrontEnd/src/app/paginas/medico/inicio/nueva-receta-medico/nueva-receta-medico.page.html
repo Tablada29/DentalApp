@@ -1,0 +1,56 @@
+<app-sub-header titulo="Nueva receta"></app-sub-header>
+
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Fecha:</ion-label>
+              <ion-input [(ngModel)]="receta.fecha"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Dentista:</ion-label>
+              <ion-input [(ngModel)]="receta.nombre_medico"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Paciente:</ion-label>
+              <ion-input [(ngModel)]="receta.nombre_paciente"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h1>Medicamentos</h1>
+              </ion-label>
+            </ion-item>
+            <ion-item *ngFor="let m of receta.medicamentos">
+              <ion-label>
+                <h2>{{m.medicamento}}</h2>
+                <p>{{m.dosis}}</p>
+              </ion-label>
+            </ion-item>
+            <ion-item *ngIf="receta.medicamentos.length == 0" lines="none" color="terciario">
+              
+                Aun no has agregado medicamentos a la receta
+              
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="full" fill="outline" shape="round" color="secundario"
+            (click)="cancelarReceta()">
+            Finalizar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secundario" (click)="agregarMedicamento()">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

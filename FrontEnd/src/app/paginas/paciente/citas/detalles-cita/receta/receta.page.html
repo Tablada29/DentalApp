@@ -1,0 +1,25 @@
+<app-sub-header titulo="Detalle receta" ruta="/detalles-cita"></app-sub-header>
+
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item *ngFor="let m of lista_medicamentos">
+              <ion-label>
+                <small><b>Medicamento:</b></small>
+                <h2>{{m.medicamento}}</h2>
+                <small><b>Dosis:</b></small>
+                <h2>{{m.dosis}}</h2>
+                <small><b>Recomendaciones:</b></small>
+                <h2>{{m.recomendaciones}}</h2>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

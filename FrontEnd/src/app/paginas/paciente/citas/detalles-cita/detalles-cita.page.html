@@ -1,0 +1,57 @@
+<app-sub-header titulo="{{cita_seleccionada.titulo}}" ruta="paciente/citas"></app-sub-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <small>Titulo:</small>
+        <h2>{{cita_seleccionada.titulo}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="cita_seleccionada.fecha != null">
+      <ion-label>
+        <small>Fecha y hora:</small>
+        <h3>{{cita_seleccionada.fecha}} - {{cita_seleccionada.hora}}</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="cita_seleccionada.fecha == null">
+      <ion-label>
+        <small>Fecha y hora:</small>
+        <h2>Fecha y hora sin confirmar</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <small>Comentarios:</small>
+        <h2>{{cita_seleccionada.comentarios}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="cita_seleccionada.nombre_medico != null">
+      <ion-label>
+        <small>Dentista:</small>
+        <h2>{{cita_seleccionada.nombre_medico}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="cita_seleccionada.nombre_medico == null">
+      <ion-label>
+        <small>Dentista:</small>
+        <h2>Dentista sin confirmar</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="receta == null">
+      <ion-label>
+        <h2><b>No hay receta disponible</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="receta != null" detail (click)="mostrarDetalleRecetaCita()">
+      <ion-label>
+        <h2><b>Receta disponible</b></h2>
+        <small>Dentista:</small>
+        <h2>{{receta.nombre_medico}}</h2>
+        <small>Fecha:</small>
+        <h2>{{receta.fecha}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

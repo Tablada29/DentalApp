@@ -1,0 +1,38 @@
+<ion-menu side="start" menuId="first" contentId="principal" type="reveal">
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="principal">
+      <ion-item color="principal">
+        <!-- <ion-avatar slot="start">
+          <img src="/assets/avatars/av-1.png">
+        </ion-avatar> -->
+        <ion-label>Menú de opciones</ion-label>
+        <!-- <app-titulos-menu></app-titulos-menu> -->
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item detail (click)="perfil()">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-item>
+
+        <!-- <ion-item detail (click)="sugerencias()">
+          <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+          <ion-label>Quejas-Sujerencias</ion-label>
+        </ion-item> -->
+
+        <ion-item detail (click)="configuracion()">
+          <ion-icon slot="start" name="settings-outline"></ion-icon>
+          <ion-label>Configuración</ion-label>
+        </ion-item>
+
+        <ion-item detail (click)="cerrarSesion()">
+          <ion-icon slot="start" name="log-out-outline" ></ion-icon>
+          <ion-label>Cerrar sesión</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

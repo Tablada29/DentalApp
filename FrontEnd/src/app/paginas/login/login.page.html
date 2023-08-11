@@ -1,0 +1,65 @@
+<ion-content fullscreen>
+<!--   <ion-slides class="mainSlides" #slidePrincipal [options]="slideOpts">
+    <ion-slide class="log"> -->
+      <div class="centrado">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="/assets/dentalapp_logo.png">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <h3>Iniciar sesión</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-list>
+                  <ion-item>
+                    <ion-label position="floating">Usuario</ion-label>
+                    <ion-input name="usuario" [(ngModel)]="usuario.usuario" type="contraseña" clear-input="true"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Contraseña</ion-label>
+                    <ion-input name="password" [(ngModel)]="usuario.pass" type="password" clear-input="true"></ion-input>
+                  </ion-item>
+                  <ion-item *ngIf="datos_correctos == 0" color="danger">
+                    <ion-label>
+                      Usuario/Contraseña incorrectos
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="correo_confirmado == 0" color="danger">
+                    <ion-label>
+                      Confirma tu correo.
+                    </ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button type="submit" color="secundario" fill="outline" shape="round" (click)="iniciarSesion()">
+                  Entrar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-footer class="ion-no-border">
+              <ion-toolbar>
+                <ion-row>
+                  <ion-col>
+                    <ion-button shape="round"
+                                expand="full"
+                                size="small"
+                                fill="clear"
+                                color="dark"
+                                (click)="mostrarRegistro()">
+                      Registrarme
+                    </ion-button>
+                  </ion-col>      
+                </ion-row>
+              </ion-toolbar>
+            </ion-footer>
+          </ion-grid>
+      </div>
+</ion-content>

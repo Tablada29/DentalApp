@@ -1,0 +1,98 @@
+<ion-header>
+  <div class="header">
+    <app-tabs-admin></app-tabs-admin>
+  </div>
+  <app-header titulo="Citas"></app-header>
+</ion-header>
+
+<ion-toolbar>
+
+  <ion-segment (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button value="todos">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="false">
+      <ion-label>Pendientes</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="true">
+      <ion-label>Aceptadas</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+</ion-toolbar>
+
+<ion-content>
+
+  <ion-list>
+    <div *ngIf="aceptacion == ''">
+      <ion-item lines="none">
+        <ion-label><b>Hoy</b></ion-label>
+      </ion-item>
+      <ion-item *ngFor="let c of citas | filtro: hoy: 'fecha'" detail (click)="detallesCita(c.id_cita-1)">
+        <ion-label>
+          <h3>{{c.titulo}}</h3>
+          <small>{{c.fecha}} - {{c.hora}}</small>
+        </ion-label>
+
+        <ion-label class="ion-text-right">
+          {{c.estatus}}
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label><b>Mañana</b></ion-label>
+      </ion-item>
+      <ion-item *ngFor="let c of citas | filtro: dia_siguiente: 'fecha'" detail (click)="detallesCita(c.id_cita-1)">
+        <ion-label>
+          <h3>{{c.titulo}}</h3>
+          <small>{{c.fecha}} - {{c.hora}}</small>
+        </ion-label>
+
+        <ion-label class="ion-text-right">
+          {{c.estatus}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label><b>Pasado mañana</b></ion-label>
+      </ion-item>
+      <ion-item *ngFor="let c of citas | filtro: dos_dias_despues: 'fecha'" detail (click)="detallesCita(c.id_cita-1)">
+        <ion-label>
+          <h3>{{c.titulo}}</h3>
+          <small>{{c.fecha}} - {{c.hora}}</small>
+        </ion-label>
+
+        <ion-label class="ion-text-right">
+          {{c.estatus}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label><b>Otras fechas</b></ion-label>
+      </ion-item>
+    </div>
+
+
+
+
+    <ion-item *ngFor="let c of citas | filtro: aceptacion: 'aceptacion'" detail (click)="detallesCita(c.id_cita-1)">
+      <ion-label>
+        <h3>{{c.titulo}}</h3>
+        <small *ngIf="c.fecha == '0000-00-00'">Fecha y hora sin confirmar</small>
+        <small *ngIf="c.fecha != '0000-00-00'">{{c.fecha}} - {{c.hora}}</small>
+      </ion-label>
+
+      <ion-label class="ion-text-right">
+        {{c.estatus}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secundario" (click)="agendarCita()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

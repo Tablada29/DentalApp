@@ -1,0 +1,50 @@
+<app-sub-header titulo="Nueva cita" ruta="paciente/citas" ></app-sub-header>
+
+<ion-content>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Titulo de cita</ion-label>
+        <ion-input name="titulo" clear-input="true" [(ngModel)]="nueva_cita.titulo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-input name="comentarios" clear-input="true" [(ngModel)]="nueva_cita.comentarios"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item class="centrado" class="ion-text-center" lines="none">
+        <ion-label >
+        <h2><b>Solicitudes adicionales</b></h2>
+      </ion-label>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating">Día prefente</ion-label>
+        <ion-select name="dia_preferente" interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="nueva_cita.dia_preferencia" value="Cualquiera">
+          <ion-select-option value="Cualquiera">Cualquiera</ion-select-option>
+          <ion-select-option value="Lunes">Lunes</ion-select-option>
+          <ion-select-option value="Martes">Martes</ion-select-option>
+          <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+          <ion-select-option value="Jueves">Jueves</ion-select-option>
+          <ion-select-option value="Viernes">Viernes</ion-select-option>
+          <ion-select-option value="Sabado">Sabado</ion-select-option>
+          <ion-select-option value="Domingo">Domingo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Horario preferente:</ion-label>
+        <ion-select name="horario_preferente" interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="nueva_cita.horario_preferente" value="Cualquiera">
+          <ion-select-option value="Cualquiera">Cualquiera</ion-select-option>
+          <ion-select-option value="Matutino">Matutino</ion-select-option>
+          <ion-select-option value="Vespertino">Vespertino</ion-select-option> 
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" fill="outline" shape="round" color="secundario" (click)="solicitarCita()">Solicitar cita</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  
+</ion-content>

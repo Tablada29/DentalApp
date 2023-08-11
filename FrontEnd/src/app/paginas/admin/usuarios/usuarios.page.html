@@ -1,0 +1,51 @@
+<ion-header>
+  <div class="header">
+    <app-tabs-admin></app-tabs-admin>
+  </div>
+  <app-header titulo="Usuarios"></app-header>
+</ion-header>
+
+<ion-toolbar>
+
+  <ion-segment (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button value="todos">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="dentista">
+      <ion-label>Dentistas</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="paciente">
+      <ion-label>Pacientes</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+</ion-toolbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let i = index; let u of lista_usuarios | filtro: rol: 'rol'" detail (click)="detalleUsuario(u.id_usuario)">
+      <ion-label>
+        <h3>{{u.nombre}} {{u.apellido_paterno}} {{u.apellido_materno}}</h3>
+        <small>{{u.usuario}}</small>
+      </ion-label>
+
+      <ion-label slot="end" class="ion-text-right" *ngIf="u.estado_actividad == 0">
+        Inactivo
+      </ion-label>
+      <ion-label slot="end" class="ion-text-right" *ngIf="u.estado_actividad == 1">
+        Activo
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secundario" (click)="agregarUsuario()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

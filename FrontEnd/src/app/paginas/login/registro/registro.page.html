@@ -1,0 +1,127 @@
+<ion-content>
+  <div class="centrado">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <img src="/assets/dentalapp_logo.png">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Crear cuenta</h3>
+        </ion-col>
+      </ion-row>
+
+      <form>
+        <div>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-list>
+                  <ion-item>
+                    <ion-label position="floating">Nombre</ion-label>
+                    <ion-input name="nombre" [(ngModel)]="registro.nombre" type="text" clear-input="true"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Apellido paterno</ion-label>
+                    <ion-input name="apellido_paterno" [(ngModel)]="registro.apellido_paterno" type="text"
+                      clear-input="true"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Apellido materno</ion-label>
+                    <ion-input name="apellido_materno" [(ngModel)]="registro.apellido_materno" type="text"
+                      clear-input="true"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Usuario</ion-label>
+                    <ion-input name="usuario" [(ngModel)]="registro.usuario" type="text" clear-input="true"></ion-input>
+                  </ion-item>
+
+
+                  <ion-item>
+
+                    <ion-label position="floating">Contraseña</ion-label>
+                    <ion-input name="password" [(ngModel)]="registro.pass" type="password" clear-input="true"
+                      (ionBlur)="blurPass()" (ionFocus)="focusPass()"></ion-input>
+
+                  </ion-item>
+
+
+                  <ion-item *ngIf="estado_password == 1" class="ion-no-border" color="terciario">
+                    <ion-label>
+                      <h2>La contraseña requiere:</h2>
+                      <h2>Entre 8 y 16 caracteres.</h2>
+                      <h2>Al menos 1 dígito.</h2>
+                      <h2>Al menos 1 Mayúscula.</h2>
+                      <h2>Al menos 1 Minúscula.</h2>
+                      <h2>Al menos un caracter especial.</h2>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="estado_password == 2" class="ion-no-border"  lines="none">
+                    <ion-icon name="checkmark-circle-outline" slot="start" color="success"></ion-icon>
+                    <ion-label color="success">
+                      <h2>La contraseña es adecuada</h2>
+                    </ion-label>
+                    
+                  </ion-item>
+                  <ion-item *ngIf="estado_password == 3" class="ion-no-border" lines="none">
+                    <ion-icon name="close-circle-outline" color="danger" slot="start"></ion-icon>
+                    <ion-label color="danger">
+                      <h2>La contraseña no es adecuada</h2>
+                    </ion-label>   
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Confirmar contraseña</ion-label>
+                    <ion-input name="confirmar_pass" type="password" [(ngModel)]="confirmar_pass"
+                      (ionBlur)="blufConfirmPass()" (ionFocus)="focusConfirmPass()" clear-input="true"></ion-input>
+                  </ion-item>
+                  <ion-item *ngIf="estado_confirmar_pass == 1" class="ion-no-border" lines="none">
+                    <ion-icon name="close-circle-outline" color="danger" slot="start"></ion-icon>
+                    <ion-label color="danger">
+                      <h2>Las contraseñas no coinciden</h2>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="estado_confirmar_pass == 2" class="ion-no-border" lines="none">
+                    <ion-icon name="checkmark-circle-outline" slot="start" color="success"></ion-icon>
+                    <ion-label color="success">
+                      <h2>Las contraseñas coinciden</h2>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input name="email" [(ngModel)]="registro.correo" type="email" clear-input="true"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none">
+                    <ion-checkbox color="secundario" slot="start">
+                    </ion-checkbox>
+                    <ion-label>Acepto los <a [routerLink]="'terminos-uso'" color="secundario">terminos de uso</a></ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="secundario" shape="round" fill="outline" (click)="registrarse()">
+              Crear usuario
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-footer class="ion-no-border">
+          <ion-toolbar>
+            <ion-row>
+              <ion-col>
+                <ion-button shape="round" expand="full" size="small" fill="clear" color="dark" (click)="mostrarLogin()">
+                  Iniciar sesión
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-toolbar>
+        </ion-footer>
+      </form>
+    </ion-grid>
+  </div>
+</ion-content>

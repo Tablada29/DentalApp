@@ -1,0 +1,37 @@
+<app-sub-header titulo="Agregar medicamentos" ruta="/detalle-cita-medico"></app-sub-header>
+
+<ion-content>
+<div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item lines="none">
+            <b>Agrega todos los medicamentos de la receta</b>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Medicamento:</ion-label>
+            <ion-input [(ngModel)]="medicamento.medicamento"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Dosis:</ion-label>
+            <ion-input [(ngModel)]="medicamento.dosis"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Recomendaciones:</ion-label>
+            <ion-input [(ngModel)]="medicamento.recomendaciones"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="full" fill="outline" shape="round" color="secundario"
+          (click)="agregarMedicamento()">
+          Agregar medicamento
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>

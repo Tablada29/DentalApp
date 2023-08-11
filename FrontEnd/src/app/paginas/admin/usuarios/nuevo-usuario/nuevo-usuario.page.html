@@ -1,0 +1,46 @@
+<app-sub-header titulo="Agregar nuevo usuario" ruta="/admin/admin/usuarios"></app-sub-header>
+
+<ion-content>
+  <div class="centrado">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Nombre:</ion-label>
+              <ion-input [(ngModel)]="nuevo_usuario.nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido paterno:</ion-label>
+              <ion-input [(ngModel)]="nuevo_usuario.apellido_paterno"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido materno:</ion-label>
+              <ion-input [(ngModel)]="nuevo_usuario.apellido_materno"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Usuario:</ion-label>
+              <ion-input [(ngModel)]="nuevo_usuario.usuario"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Contraseña:</ion-label>
+              <ion-input [(ngModel)]="nuevo_usuario.pass"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Correo:</ion-label>
+              <ion-input [(ngModel)]="nuevo_usuario.correo"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="full" fill="outline" shape="round" color="secundario"
+            (click)="agregarUsuario()">
+            Agregar usuario
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

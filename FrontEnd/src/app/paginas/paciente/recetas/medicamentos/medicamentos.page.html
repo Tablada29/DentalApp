@@ -1,0 +1,15 @@
+<app-sub-header [titulo]="medicamento.medicamento" ruta="/detalle-receta"></app-sub-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>{{medicamento.medicamento}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{medicamento.dosis}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-text>{{medicamento.recomendaciones}}</ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

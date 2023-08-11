@@ -1,0 +1,17 @@
+<app-sub-header titulo="Telefonos" ruta="paciente/inicio"></app-sub-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let t of telefonos; let i = index">
+      <ion-label>
+        <h2>{{t.telefono}} - {{t.referencia}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secundario" (click)="nuevoTelefono()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

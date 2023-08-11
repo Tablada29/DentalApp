@@ -1,0 +1,122 @@
+<app-sub-header titulo="Detalles del usuario" ruta="/admin/usuarios"></app-sub-header>
+
+<ion-content>
+  <div class="centrado">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-list *ngIf="usuario.rol == 'dentista'">
+            <ion-item>
+              <ion-label position="floating">Nombre:</ion-label>
+              <ion-input [(ngModel)]="usuario.nombre" clear-input="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido paterno:</ion-label>
+              <ion-input [(ngModel)]="usuario.apellido_paterno" clear-input="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido materno:</ion-label>
+              <ion-input [(ngModel)]="usuario.apellido_materno" clear-input="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Correo:</ion-label>
+              <ion-input [(ngModel)]="usuario.correo" clear-input="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Sexo:</ion-label>
+              <ion-select interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="usuario.sexo">
+                <ion-select-option value="Masculino">Masculino</ion-select-option>
+                <ion-select-option value="Femenino">Femenino</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Edad:</ion-label>
+              <ion-input [(ngModel)]="usuario.edad" clear-input="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Fecha de nacimiento:</ion-label>
+              <ion-datetime placeholder="Seleccionar fecha" display-format="DD MMM YYYY"
+                month-short-names="[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Set,  Oct, Nov, Dic]"
+                min="{{current_year-100}}-01-01" max="{{current_year}}-12-31" [(ngModel)]="usuario.fecha_nacimiento">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Curp:</ion-label>
+              <ion-input [(ngModel)]="usuario.curp" clear-input="true"></ion-input>
+            </ion-item>
+            <ion-item  *ngIf="usuario.rol == 'dentista'">
+              <ion-label position="floating">Cédula:</ion-label>
+              <ion-input [(ngModel)]="usuario.cedula" clear-input="true"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list *ngIf="usuario.rol == 'paciente'">
+            <ion-item>
+              <ion-label>
+                <small>Nombre:</small>
+                <h2>{{usuario.nombre}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>Apellido paterno:</small>
+                <h2>{{usuario.apellido_paterno}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>Apellido materno:</small>
+                <h2>{{usuario.apellido_materno}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>Correo:</small>
+                <h2>{{usuario.correo}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>Sexo:</small>
+                <h2>{{usuario.sexo}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>Edad:</small>
+                <h2>{{usuario.edad}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>Fecha de nacimiento:</small>
+                <h2>{{usuario.fecha_nacimiento}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <small>CURP:</small>
+                <h2>{{usuario.curp}}</h2>
+              </ion-label>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="full" fill="outline" shape="round" color="secundario"
+            (click)="eliminarUsuario()" *ngIf="usuario.estado_actividad == '1'">
+            Eliminar usuario
+          </ion-button>
+          <ion-button type="submit" expand="full" fill="outline" shape="round" color="secundario"
+            (click)="actualizarUsuarios()" *ngIf="usuario.rol == 'dentista' && usuario.estado_actividad == '1'">
+            Actualizar usuario
+          </ion-button>
+        </ion-col>
+        
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

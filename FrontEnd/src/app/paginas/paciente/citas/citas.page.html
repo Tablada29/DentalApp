@@ -1,0 +1,25 @@
+<ion-header>
+  <div class="header-paciente">
+      <app-tabs-paciente></app-tabs-paciente>
+  </div>
+  <app-header titulo="Citas"></app-header>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let c of citas; let i = index" detail (click)="detallesCita(c)">
+      <ion-label>
+        <h2>{{c.titulo}}</h2>
+        <p *ngIf="c.fecha == '0000-00-00' && c.hora == null">Fecha y hora sin confirmar</p>
+        <p *ngIf="c.fecha != '0000-00-00' || c.hora != null">{{c.fecha}} - {{c.hora}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secundario" (click)="generarCita()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

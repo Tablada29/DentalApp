@@ -1,0 +1,58 @@
+<!-- <app-sub-header titulo = "Actualizar datos" ruta="/paciente/inicio"></app-sub-header> -->
+
+<ion-header>
+  <app-sub-header titulo="Actualizar datos" ruta="/paciente/inicio"></app-sub-header>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Nombre:</ion-label>
+              <ion-input [(ngModel)]="usuario.nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido paterno:</ion-label>
+              <ion-input [(ngModel)]="usuario.apellido_paterno"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido materno:</ion-label>
+              <ion-input [(ngModel)]="usuario.apellido_materno"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Sexo:</ion-label>
+              <ion-select interface="action-sheet" placeholder="Selecciona uno" [(ngModel)]="usuario.sexo">
+                <ion-select-option value="Masculino">Masculino</ion-select-option>
+                <ion-select-option value="Femenino">Femenino</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Edad:</ion-label>
+              <ion-input [(ngModel)]="usuario.edad" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Fecha:</ion-label>
+              <ion-datetime placeholder="Seleccionar fecha" display-format="DD MMM YYYY"
+                month-short-names="[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Set,  Oct, Nov, Dic]"
+                min="{{current_year-100}}-01-01" max="{{current_year}}-12-31" [(ngModel)]="usuario.fecha_nacimiento">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Curp:</ion-label>
+              <ion-input [(ngModel)]="usuario.curp"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="outline" shape="round" color="secundario" (click)="actualizarDatosPaciente()">Actualizar información</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
